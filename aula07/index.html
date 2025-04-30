@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Prática - Troca de Imagens</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <h1>Minha Galeria de Imagens</h1>
+    
+    <div class="image-container">
+        <img id="displayed-image" src="" alt="Imagem exibida">
+    </div>
+    
+    <div class="buttons">
+        <button onclick="changeImage('image1')">Imagem 1</button>
+        <button onclick="changeImage('image2')">Imagem 2</button>
+        <button onclick="changeImage('image3')">Imagem 3</button>
+    </div>
+
+    <script>
+        const images = {
+            image1: 'download.jpg',
+            image2: 'downloadsad.jpg',
+            image3: 'download (1).jpg'
+        };
+
+        // Função para trocar a imagem
+        function changeImage(imageKey) {
+            const imgElement = document.getElementById('displayed-image');
+            imgElement.src = images[imageKey];
+            
+            // Adiciona um tratamento para caso a imagem não carregue
+            imgElement.onerror = function() {
+                this.src = 'bbbb.jpg';
+                alert('Imagem não encontrada! Verifique o nome do arquivo.');
+            };
+        }
+
+        // Inicializa com a Imagem 1
+        window.onload = function() {
+            changeImage('image1');
+        };
+    </script>
+    </script>
+</body>
+</html>
